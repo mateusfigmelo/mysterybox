@@ -82,7 +82,7 @@ contract MysteryBox {
             totalValue += rewardsOwned[msg.sender][i].value;
         }
         require(totalValue > 0, "No rewards to claim");
-
+        
         (bool success,) = payable(msg.sender).call{value: totalValue}("");
         require(success, "Transfer failed");
 
